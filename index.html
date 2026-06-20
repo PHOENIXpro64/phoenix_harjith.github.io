@@ -1,10 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Phoenix Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Web</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+background:black;
+color:white;
+}
+
+video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+#intro{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:50px;
+font-weight:bold;
+text-align:center;
+animation:fadeOut 4s forwards;
+animation-delay:4s;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+#nameBox{
+display:none;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+background:rgba(0,0,0,0.6);
+padding:30px;
+border-radius:15px;
+}
+
+input{
+padding:12px;
+font-size:18px;
+width:250px;
+border:none;
+border-radius:8px;
+}
+
+button{
+padding:12px 20px;
+margin-top:10px;
+cursor:pointer;
+border:none;
+border-radius:8px;
+font-size:18px;
+}
+
+#message{
+margin-top:15px;
+font-size:22px;
+font-weight:bold;
+}
+</style>
 </head>
+
 <body>
-    <h1>🔥 Welcome to Phoenix Harjith</h1>
-    <p>My website is live!</p>
+
+<video autoplay muted loop>
+<source src="anime-bg.mp4" type="video/mp4">
+</video>
+
+<div id="intro">
+Thinks That These Walls Make You Perfect
+</div>
+
+<div id="nameBox">
+<h2>Put your name on the desk</h2>
+<br>
+<input type="text" id="username" placeholder="Enter Name">
+<br><br>
+<button onclick="checkName()">Enter</button>
+<div id="message"></div>
+</div>
+
+<script>
+
+setTimeout(()=>{
+document.getElementById("nameBox").style.display="block";
+},8000);
+
+function checkName(){
+
+let name=document.getElementById("username").value.trim();
+let msg=document.getElementById("message");
+
+if(name.toLowerCase()=="harshitha"){
+msg.innerHTML="Get lost, you suck you creep.";
+return;
+}
+
+if(name.toLowerCase()=="harjith"){
+msg.innerHTML="Hey bro welcome back. Find out the flow of your web.";
+return;
+}
+
+msg.innerHTML="Welcome, " + name;
+
+}
+
+</script>
+
 </body>
 </html>
